@@ -1,6 +1,11 @@
 # Koinpr 
 A Product of Todayq
 
+# Check live 
+   - http://13.233.229.172:4000/
+     or
+   - [click here](https://shorturl.at/1omEg)
+
 ## Description
 TodayQ NFT Platform is a comprehensive web application built on the MERN (MongoDB, Express.js, React.js, Node.js) stack, aimed at providing a platform for publishers to publish their NFTs, coins, and packages. Users can browse and purchase these items, as well as subscribe to various services offered on the platform. The platform is designed to cater to the needs of the web3 community, gaming enthusiasts, and more.
 
