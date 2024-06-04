@@ -1,24 +1,3 @@
 # Node modules
 node_modules/
 
-# Logs
-logs/
-*.log
-
-# Build folders
-/build/
-/.next/
-/out/
-
-# Environment variables
-.env
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Client build
-client/build/
-
-# Server build
-server/build/
