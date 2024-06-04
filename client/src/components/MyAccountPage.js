@@ -9,7 +9,7 @@ const MyAccountPage = () => {
   
   useEffect(() => {
     // Fetch user data from the backend API
-    axios.get('http://localhost:4000/api/v1/profile', {
+    axios.get('/api/v1/profile', {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -27,7 +27,7 @@ const MyAccountPage = () => {
 
   const handleSave = () => {
     // Send updated user data to the backend API
-    axios.put('http://localhost:4000/api/v1/profile', userData)
+    axios.put('/api/v1/profile', userData)
       .then(response => {
         console.log('User data updated successfully:', response.data);
         setEditMode(false);

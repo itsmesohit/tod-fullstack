@@ -17,7 +17,7 @@ router.get('/auth/google/callback',
     res.cookie('token', token);
 
     // Redirect to dashboard
-    res.redirect('http://localhost:3000/');
+    res.redirect('/');
   }
 );
 

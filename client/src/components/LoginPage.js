@@ -20,7 +20,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/login', formData);
+      const response = await axios.post('/api/v1/login', formData);
       Cookies.set('token', response.data.token, { expires: 1 }); // 1 day expiration
       console.log('Login successful:', response.data);
       // reload the page to reflect the logged-in state

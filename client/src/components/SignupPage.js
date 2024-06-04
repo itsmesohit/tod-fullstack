@@ -23,7 +23,7 @@ const SignupPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/register', formData);
+      const response = await axios.post('/api/v1/register', formData);
       console.log('Registration successful:', response.data);
       Cookies.set('token', response.data.token, { expires: 1, secure: false, sameSite: 'Strict' });
       navigate('/');
@@ -126,7 +126,7 @@ const SignupPage = () => {
           </div>
         </form>
         <div className="mt-4">
-          <a href="http://localhost:4000/api/v1/google" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <a href="/api/v1/google" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Sign up with Google
           </a>
         </div>

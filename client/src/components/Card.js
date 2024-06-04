@@ -12,7 +12,7 @@ const Card = ({ filters }) => {
 
   const fetchOfferings = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/");
+      const response = await axios.get("/api/v1/");
       setOfferings(response.data.data); // Access the data array within the response
     } catch (error) {
       console.error("Error fetching offerings:", error);
@@ -21,7 +21,7 @@ const Card = ({ filters }) => {
 
   const addToCart = async (offeringId) => {
     try {
-      await axios.post(`http://localhost:4000/api/v1/cart/${offeringId}`, {}, {
+      await axios.post(`/api/v1/cart/${offeringId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -34,7 +34,7 @@ const Card = ({ filters }) => {
 const addToBookmarks = async (offeringId) => {
     try {
         console.log("offeringId clicked", offeringId);
-      await axios.post(`http://localhost:4000/api/v1/bookmarks/${offeringId}`, {}, {
+      await axios.post(`/api/v1/bookmarks/${offeringId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }

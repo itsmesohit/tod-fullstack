@@ -10,7 +10,7 @@ const CartPage = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/cart', {
+        const response = await axios.get('/api/v1/cart', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -34,7 +34,7 @@ const CartPage = () => {
         console.log('Content IDs kjhadfbg:', contentIds);
         
         const response = await axios.post(
-            'http://localhost:4000/api/v1/order',
+            '/api/v1/order',
             { contentIds },
             {
                 headers: {
@@ -62,7 +62,7 @@ const CartPage = () => {
 
   const handleRemove = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/cart/${itemId}`, {
+      await axios.delete(`/api/v1/cart/${itemId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

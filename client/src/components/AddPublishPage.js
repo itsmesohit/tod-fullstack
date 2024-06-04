@@ -70,7 +70,7 @@ const AddPublishPage = () => {
     data.append('caseStudyDocLink', caseStudyDocLink);
 
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/content', data, {
+      const response = await axios.post('api/v1/content', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
@@ -80,7 +80,7 @@ const AddPublishPage = () => {
       setPopupMessage('Content offering added successfully');
       setTimeout(() => {
         setPopupMessage('');
-        window.location.href = 'http://localhost:3000';
+        window.location.href = '/';
       }, 3000);
     } catch (error) {
       console.error('Error adding content offering:', error);

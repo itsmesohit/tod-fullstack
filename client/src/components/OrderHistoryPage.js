@@ -10,7 +10,7 @@ const OrderHistoryPage = () => {
     const fetchOrders = async () => {
       try {
         const token = Cookies.get('token');
-        const response = await axios.get('http://localhost:4000/api/v1/order', {
+        const response = await axios.get('/api/v1/order', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setOrders(response.data.data); // Updated to match the response structure

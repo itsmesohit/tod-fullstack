@@ -12,7 +12,7 @@ const NavBar = () => {
   useEffect(() => {
     const token = Cookies.get('token');
     if (token) {
-      axios.get('http://localhost:4000/api/v1/profile', {
+      axios.get('/api/v1/profile', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -49,7 +49,7 @@ const NavBar = () => {
     // Clear the token from cookies and reload the page
     Cookies.remove('token');
     window.location.reload();
-    window.location.href = 'http://localhost:3000/';
+    window.location.href = '/';
   };
 
   return (

@@ -10,7 +10,7 @@ const BookmarksPage = () => {
   useEffect(() => {
     const fetchBookmarks = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/bookmarks', {
+        const response = await axios.get('/api/v1/bookmarks', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -25,7 +25,7 @@ const BookmarksPage = () => {
 
   const handleRemove = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/bookmarks/${itemId}`, {
+      await axios.delete(`/api/v1/bookmarks/${itemId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
