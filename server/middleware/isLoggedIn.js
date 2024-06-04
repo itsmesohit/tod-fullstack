@@ -22,7 +22,8 @@ const isLoggedIn = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         // if token has been exprired then clear from cookie
-        if (!decoded) {
+        if (decoded.exp < Date.now().valueOf() / 1000) {
+            console.log('Token has expired');
             res.cookie('token', '', { maxAge: 1 });
             return res.redirect('/api/v1/login');
         }
@@ -31,6 +32,7 @@ const isLoggedIn = (req, res, next) => {
         next();
     } catch (error) {
         console.error('Error:', error);
+        res.cookie('token', '', { maxAge: 1 });
         return res.redirect('/api/v1/login');
     }
 };

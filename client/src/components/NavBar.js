@@ -12,8 +12,6 @@ const NavBar = () => {
   useEffect(() => {
     const token = Cookies.get('token');
     if (token) {
-      setIsLoggedIn(true);
-      // Fetch user profile data
       axios.get('http://localhost:4000/api/v1/profile', {
         headers: {
           Authorization: `Bearer ${token}`
@@ -21,9 +19,11 @@ const NavBar = () => {
       })
       .then(response => {
         setUserData(response.data.user);
+        setIsLoggedIn(true);  // Set isLoggedIn to true only after successfully fetching user data
       })
       .catch(error => {
         console.error('Error fetching user profile:', error);
+        setIsLoggedIn(false);
       });
     } else {
       setIsLoggedIn(false);
@@ -69,6 +69,7 @@ const NavBar = () => {
               </button>
               {showDropdown && (
                 <div className="absolute right-0 mt-2 bg-white border rounded-md shadow-lg w-48">
+                  <Link to="/" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Home</Link>
                   <Link to="/myaccount" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">My Account</Link>
                   <Link to="/bookmarks" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Bookmarks</Link>
                   <Link to="/order-history" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Order History</Link>

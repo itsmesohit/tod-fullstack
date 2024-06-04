@@ -9,6 +9,7 @@ const LoginPage = () => {
     password: ''
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,6 +28,11 @@ const LoginPage = () => {
       window.location.reload();
     } catch (error) {
       console.error('Login failed:', error);
+      if (error.response && error.response.data && error.response.data.message) {
+        setErrorMessage(error.response.data.message);
+      } else {
+        setErrorMessage('An error occurred. Please try again.');
+      }
     }
   };
 
@@ -63,6 +69,11 @@ const LoginPage = () => {
               placeholder="********"
             />
           </div>
+          {errorMessage && (
+            <div className="mb-4 text-red-500 text-sm">
+              {errorMessage}
+            </div>
+          )}
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
